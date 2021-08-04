@@ -51,7 +51,9 @@ class HomeController extends Controller
             ->whereNull('deleted_at')
             ->orderBy('updated_at', 'DESC')
             ->get();
+        
+        $edit_memo = Memo::find('$id');
 
-        return view('create', compact('memos'));
+        return view('edit', compact('memos', 'edit_memo'));
     }
 }
